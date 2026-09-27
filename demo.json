@@ -30,17 +30,17 @@
             "--trap",
             "harmonic"
           ],
-          "started_at": "2026-09-27T14:39:59.050Z",
-          "finished_at": "2026-09-27T14:39:59.303Z",
-          "duration_ms": 253,
+          "started_at": "2026-09-27T15:51:28.551Z",
+          "finished_at": "2026-09-27T15:51:28.832Z",
+          "duration_ms": 281,
           "exit_code": 0,
           "capture": "post-hoc"
         },
         "git": {
-          "repository": "srs",
+          "repository": "bec-ground-state",
           "branch": "main",
-          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
-          "dirty": true
+          "commit": "73fafa85964ec34c1f0d8e374623a173755d86f4",
+          "dirty": false
         },
         "facts": [
           {
@@ -195,17 +195,17 @@
             "--trap",
             "harmonic"
           ],
-          "started_at": "2026-09-27T14:39:59.330Z",
-          "finished_at": "2026-09-27T14:39:59.505Z",
-          "duration_ms": 175,
+          "started_at": "2026-09-27T15:51:28.855Z",
+          "finished_at": "2026-09-27T15:51:29.038Z",
+          "duration_ms": 183,
           "exit_code": 0,
           "capture": "post-hoc"
         },
         "git": {
-          "repository": "srs",
+          "repository": "bec-ground-state",
           "branch": "main",
-          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
-          "dirty": true
+          "commit": "73fafa85964ec34c1f0d8e374623a173755d86f4",
+          "dirty": false
         },
         "facts": [
           {
@@ -346,17 +346,17 @@
             "--trap",
             "harmonic"
           ],
-          "started_at": "2026-09-27T14:39:59.532Z",
-          "finished_at": "2026-09-27T14:39:59.727Z",
-          "duration_ms": 195,
+          "started_at": "2026-09-27T15:51:29.061Z",
+          "finished_at": "2026-09-27T15:51:29.254Z",
+          "duration_ms": 193,
           "exit_code": 0,
           "capture": "post-hoc"
         },
         "git": {
-          "repository": "srs",
+          "repository": "bec-ground-state",
           "branch": "main",
-          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
-          "dirty": true
+          "commit": "73fafa85964ec34c1f0d8e374623a173755d86f4",
+          "dirty": false
         },
         "facts": [
           {
@@ -497,17 +497,17 @@
             "--trap",
             "harmonic"
           ],
-          "started_at": "2026-09-27T14:39:59.752Z",
-          "finished_at": "2026-09-27T14:39:59.925Z",
-          "duration_ms": 173,
+          "started_at": "2026-09-27T15:51:29.277Z",
+          "finished_at": "2026-09-27T15:51:29.455Z",
+          "duration_ms": 178,
           "exit_code": 0,
           "capture": "post-hoc"
         },
         "git": {
-          "repository": "srs",
+          "repository": "bec-ground-state",
           "branch": "main",
-          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
-          "dirty": true
+          "commit": "73fafa85964ec34c1f0d8e374623a173755d86f4",
+          "dirty": false
         },
         "facts": [
           {
@@ -651,17 +651,17 @@
             "--quartic",
             "0.01"
           ],
-          "started_at": "2026-09-27T14:39:59.948Z",
-          "finished_at": "2026-09-27T14:40:00.124Z",
-          "duration_ms": 175,
+          "started_at": "2026-09-27T15:51:29.479Z",
+          "finished_at": "2026-09-27T15:51:29.657Z",
+          "duration_ms": 178,
           "exit_code": 0,
           "capture": "post-hoc"
         },
         "git": {
-          "repository": "srs",
+          "repository": "bec-ground-state",
           "branch": "main",
-          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
-          "dirty": true
+          "commit": "73fafa85964ec34c1f0d8e374623a173755d86f4",
+          "dirty": false
         },
         "facts": [
           {
@@ -810,17 +810,17 @@
             "--barrier",
             "2"
           ],
-          "started_at": "2026-09-27T14:40:00.149Z",
-          "finished_at": "2026-09-27T14:40:00.329Z",
-          "duration_ms": 180,
+          "started_at": "2026-09-27T15:51:29.679Z",
+          "finished_at": "2026-09-27T15:51:29.862Z",
+          "duration_ms": 183,
           "exit_code": 0,
           "capture": "post-hoc"
         },
         "git": {
-          "repository": "srs",
+          "repository": "bec-ground-state",
           "branch": "main",
-          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
-          "dirty": true
+          "commit": "73fafa85964ec34c1f0d8e374623a173755d86f4",
+          "dirty": false
         },
         "facts": [
           {
