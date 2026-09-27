@@ -1,0 +1,19 @@
+{
+  "method": "split-step",
+  "trap": "double-well",
+  "g": 1.0,
+  "dt": 0.01,
+  "nx": 256,
+  "xmax": 8.0,
+  "quartic": 0.01,
+  "barrier": 2.0,
+  "energy": 2.145993015214121,
+  "chemical_potential": 2.2695808200492498,
+  "normalization": 1.0,
+  "normalization_error": 0.0,
+  "residual": 0.00021350427552192474,
+  "iterations": 594,
+  "converged": true,
+  "energy_error": null,
+  "chemical_potential_error": null
+}

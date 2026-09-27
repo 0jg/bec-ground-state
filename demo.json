@@ -1,0 +1,944 @@
+{
+  "owner": "demo",
+  "repository": "bec-ground-state",
+  "runs": [
+    {
+      "manifest": {
+        "schema": 1,
+        "id": "BEC-001",
+        "experiment": "harmonic-ground-state",
+        "title": "Harmonic Reference",
+        "run_status": "success",
+        "scientific_status": "notable",
+        "summary": "Computed with the 1D Gross-Pitaevskii solver (split-step, g=0, dt=0.01).",
+        "interpretation": "For the non-interacting harmonic reference, E=0.499877011 ℏω and μ=0.499877011 ℏω. The computed absolute errors from 1/2 are 0.000123 and 0.000123 ℏω, consistent with the finite-grid discretization at nx=256.",
+        "open_questions": [],
+        "execution": {
+          "command": [
+            "python3",
+            "run.py",
+            "--method",
+            "split-step",
+            "--g",
+            "0",
+            "--dt",
+            "0.01",
+            "--nx",
+            "256",
+            "--xmax",
+            "8",
+            "--trap",
+            "harmonic"
+          ],
+          "started_at": "2026-09-27T14:39:59.050Z",
+          "finished_at": "2026-09-27T14:39:59.303Z",
+          "duration_ms": 253,
+          "exit_code": 0,
+          "capture": "post-hoc"
+        },
+        "git": {
+          "repository": "srs",
+          "branch": "main",
+          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
+          "dirty": true
+        },
+        "facts": [
+          {
+            "key": "solver.method",
+            "label": "Imaginary-time method",
+            "value": "split-step",
+            "source": "command"
+          },
+          {
+            "key": "solver.interaction_strength",
+            "label": "Interaction strength g",
+            "value": 0,
+            "unit": "dimensionless",
+            "source": "command"
+          },
+          {
+            "key": "solver.imaginary_time_step",
+            "label": "Imaginary-time step",
+            "value": 0.01,
+            "unit": "ω⁻¹",
+            "source": "command"
+          },
+          {
+            "key": "grid.points",
+            "label": "Grid points",
+            "value": 256,
+            "source": "command"
+          },
+          {
+            "key": "grid.half_width",
+            "label": "Grid half-width",
+            "value": 8,
+            "unit": "aₕₒ",
+            "source": "command"
+          },
+          {
+            "key": "trap.type",
+            "label": "Trap potential",
+            "value": "harmonic",
+            "source": "command"
+          },
+          {
+            "key": "solver.energy",
+            "label": "Ground-state energy",
+            "value": 0.4998770108700958,
+            "unit": "ℏω",
+            "highlight": true,
+            "source": "results/harmonic-reference/summary.json#/energy"
+          },
+          {
+            "key": "solver.chemical_potential",
+            "label": "Chemical potential",
+            "value": 0.4998770108700958,
+            "unit": "ℏω",
+            "source": "results/harmonic-reference/summary.json#/chemical_potential"
+          },
+          {
+            "key": "solver.stationary_residual",
+            "label": "Stationary-equation residual",
+            "value": 0.0004018657615614351,
+            "source": "results/harmonic-reference/summary.json#/residual"
+          },
+          {
+            "key": "solver.normalization_error",
+            "label": "Normalization error",
+            "value": 4.440892098500626e-16,
+            "source": "results/harmonic-reference/summary.json#/normalization_error"
+          },
+          {
+            "key": "solver.iterations",
+            "label": "Iterations",
+            "value": 2,
+            "source": "results/harmonic-reference/summary.json#/iterations"
+          },
+          {
+            "key": "solver.harmonic_reference_energy_error",
+            "label": "Energy error from E = 1/2",
+            "value": -0.0001229891299042163,
+            "unit": "ℏω",
+            "source": "derived: solver.energy minus 0.5 for g = 0 harmonic reference"
+          },
+          {
+            "key": "solver.harmonic_reference_mu_error",
+            "label": "Chemical-potential error from μ = 1/2",
+            "value": -0.0001229891299042163,
+            "unit": "ℏω",
+            "source": "derived: solver.chemical_potential minus 0.5 for g = 0 harmonic reference"
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "results/harmonic-reference/density.png",
+            "role": "figure",
+            "title": "Ground-state density"
+          },
+          {
+            "path": "results/harmonic-reference/convergence.png",
+            "role": "figure",
+            "title": "Energy convergence"
+          },
+          {
+            "path": "results/harmonic-reference/summary.json",
+            "role": "data",
+            "title": "Solver summary"
+          }
+        ]
+      },
+      "codePatch": "--- /dev/null\n+++ b/experiments/harmonic-reference.json\n@@ -0,0 +1 @@\n+{\"experiment\":\"harmonic-ground-state\",\"method\":\"split-step\",\"g\":0,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"harmonic\"}\n",
+      "artifacts": [
+        {
+          "path": "results/harmonic-reference/density.png",
+          "role": "figure",
+          "title": "Ground-state density"
+        },
+        {
+          "path": "results/harmonic-reference/convergence.png",
+          "role": "figure",
+          "title": "Energy convergence"
+        },
+        {
+          "path": "results/harmonic-reference/summary.json",
+          "role": "data",
+          "title": "Solver summary"
+        }
+      ]
+    },
+    {
+      "manifest": {
+        "schema": 1,
+        "id": "BEC-002",
+        "experiment": "harmonic-ground-state",
+        "title": "Harmonic Interacting",
+        "run_status": "success",
+        "scientific_status": "scratch",
+        "summary": "Computed with the 1D Gross-Pitaevskii solver (split-step, g=1, dt=0.01).",
+        "interpretation": "At fixed harmonic trap, dt, and grid, increasing g from 0 to 1 changes E from 0.499877011 to 0.689403720 ℏω and μ from 0.499877011 to 0.869941623 ℏω. This is the computed repulsive-interaction case; the differences are relative to the non-interacting reference, not a convergence estimate.",
+        "open_questions": [],
+        "execution": {
+          "command": [
+            "python3",
+            "run.py",
+            "--method",
+            "split-step",
+            "--g",
+            "1",
+            "--dt",
+            "0.01",
+            "--nx",
+            "256",
+            "--xmax",
+            "8",
+            "--trap",
+            "harmonic"
+          ],
+          "started_at": "2026-09-27T14:39:59.330Z",
+          "finished_at": "2026-09-27T14:39:59.505Z",
+          "duration_ms": 175,
+          "exit_code": 0,
+          "capture": "post-hoc"
+        },
+        "git": {
+          "repository": "srs",
+          "branch": "main",
+          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
+          "dirty": true
+        },
+        "facts": [
+          {
+            "key": "solver.method",
+            "label": "Imaginary-time method",
+            "value": "split-step",
+            "source": "command"
+          },
+          {
+            "key": "solver.interaction_strength",
+            "label": "Interaction strength g",
+            "value": 1,
+            "unit": "dimensionless",
+            "source": "command"
+          },
+          {
+            "key": "solver.imaginary_time_step",
+            "label": "Imaginary-time step",
+            "value": 0.01,
+            "unit": "ω⁻¹",
+            "source": "command"
+          },
+          {
+            "key": "grid.points",
+            "label": "Grid points",
+            "value": 256,
+            "source": "command"
+          },
+          {
+            "key": "grid.half_width",
+            "label": "Grid half-width",
+            "value": 8,
+            "unit": "aₕₒ",
+            "source": "command"
+          },
+          {
+            "key": "trap.type",
+            "label": "Trap potential",
+            "value": "harmonic",
+            "source": "command"
+          },
+          {
+            "key": "solver.energy",
+            "label": "Ground-state energy",
+            "value": 0.6894037201273551,
+            "unit": "ℏω",
+            "highlight": true,
+            "source": "results/harmonic-interacting/summary.json#/energy"
+          },
+          {
+            "key": "solver.chemical_potential",
+            "label": "Chemical potential",
+            "value": 0.8699416227729653,
+            "unit": "ℏω",
+            "source": "results/harmonic-interacting/summary.json#/chemical_potential"
+          },
+          {
+            "key": "solver.stationary_residual",
+            "label": "Stationary-equation residual",
+            "value": 0.0005514651788599031,
+            "source": "results/harmonic-interacting/summary.json#/residual"
+          },
+          {
+            "key": "solver.normalization_error",
+            "label": "Normalization error",
+            "value": 0.0,
+            "source": "results/harmonic-interacting/summary.json#/normalization_error"
+          },
+          {
+            "key": "solver.iterations",
+            "label": "Iterations",
+            "value": 444,
+            "source": "results/harmonic-interacting/summary.json#/iterations"
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "results/harmonic-interacting/density.png",
+            "role": "figure",
+            "title": "Ground-state density"
+          },
+          {
+            "path": "results/harmonic-interacting/convergence.png",
+            "role": "figure",
+            "title": "Energy convergence"
+          },
+          {
+            "path": "results/harmonic-interacting/summary.json",
+            "role": "data",
+            "title": "Solver summary"
+          }
+        ]
+      },
+      "codePatch": "--- a/experiments/harmonic-reference.json\n+++ b/experiments/harmonic-interacting.json\n@@ -1 +1 @@\n-{\"experiment\":\"harmonic-ground-state\",\"method\":\"split-step\",\"g\":0,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"harmonic\"}\n+{\"experiment\":\"harmonic-ground-state\",\"method\":\"split-step\",\"g\":1,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"harmonic\"}\n",
+      "artifacts": [
+        {
+          "path": "results/harmonic-interacting/density.png",
+          "role": "figure",
+          "title": "Ground-state density"
+        },
+        {
+          "path": "results/harmonic-interacting/convergence.png",
+          "role": "figure",
+          "title": "Energy convergence"
+        },
+        {
+          "path": "results/harmonic-interacting/summary.json",
+          "role": "data",
+          "title": "Solver summary"
+        }
+      ]
+    },
+    {
+      "manifest": {
+        "schema": 1,
+        "id": "BEC-003",
+        "experiment": "harmonic-ground-state",
+        "title": "Harmonic Small Step",
+        "run_status": "success",
+        "scientific_status": "baseline",
+        "summary": "Computed with the 1D Gross-Pitaevskii solver (split-step, g=1, dt=0.005).",
+        "interpretation": "Reducing dt from 0.01 to 0.005 changes E by 7.92e-08 ℏω (0.689403720 to 0.689403641 ℏω). The change is below 1×10⁻⁶ ℏω at fixed g, trap, and grid, supporting this run as the harmonic reference baseline.",
+        "open_questions": [],
+        "execution": {
+          "command": [
+            "python3",
+            "run.py",
+            "--method",
+            "split-step",
+            "--g",
+            "1",
+            "--dt",
+            "0.005",
+            "--nx",
+            "256",
+            "--xmax",
+            "8",
+            "--trap",
+            "harmonic"
+          ],
+          "started_at": "2026-09-27T14:39:59.532Z",
+          "finished_at": "2026-09-27T14:39:59.727Z",
+          "duration_ms": 195,
+          "exit_code": 0,
+          "capture": "post-hoc"
+        },
+        "git": {
+          "repository": "srs",
+          "branch": "main",
+          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
+          "dirty": true
+        },
+        "facts": [
+          {
+            "key": "solver.method",
+            "label": "Imaginary-time method",
+            "value": "split-step",
+            "source": "command"
+          },
+          {
+            "key": "solver.interaction_strength",
+            "label": "Interaction strength g",
+            "value": 1,
+            "unit": "dimensionless",
+            "source": "command"
+          },
+          {
+            "key": "solver.imaginary_time_step",
+            "label": "Imaginary-time step",
+            "value": 0.005,
+            "unit": "ω⁻¹",
+            "source": "command"
+          },
+          {
+            "key": "grid.points",
+            "label": "Grid points",
+            "value": 256,
+            "source": "command"
+          },
+          {
+            "key": "grid.half_width",
+            "label": "Grid half-width",
+            "value": 8,
+            "unit": "aₕₒ",
+            "source": "command"
+          },
+          {
+            "key": "trap.type",
+            "label": "Trap potential",
+            "value": "harmonic",
+            "source": "command"
+          },
+          {
+            "key": "solver.energy",
+            "label": "Ground-state energy",
+            "value": 0.689403640889672,
+            "unit": "ℏω",
+            "highlight": true,
+            "source": "results/harmonic-small-step/summary.json#/energy"
+          },
+          {
+            "key": "solver.chemical_potential",
+            "label": "Chemical potential",
+            "value": 0.869909056231825,
+            "unit": "ℏω",
+            "source": "results/harmonic-small-step/summary.json#/chemical_potential"
+          },
+          {
+            "key": "solver.stationary_residual",
+            "label": "Stationary-equation residual",
+            "value": 0.00027231164782177215,
+            "source": "results/harmonic-small-step/summary.json#/residual"
+          },
+          {
+            "key": "solver.normalization_error",
+            "label": "Normalization error",
+            "value": 0.0,
+            "source": "results/harmonic-small-step/summary.json#/normalization_error"
+          },
+          {
+            "key": "solver.iterations",
+            "label": "Iterations",
+            "value": 726,
+            "source": "results/harmonic-small-step/summary.json#/iterations"
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "results/harmonic-small-step/density.png",
+            "role": "figure",
+            "title": "Ground-state density"
+          },
+          {
+            "path": "results/harmonic-small-step/convergence.png",
+            "role": "figure",
+            "title": "Energy convergence"
+          },
+          {
+            "path": "results/harmonic-small-step/summary.json",
+            "role": "data",
+            "title": "Solver summary"
+          }
+        ]
+      },
+      "codePatch": "--- a/experiments/harmonic-interacting.json\n+++ b/experiments/harmonic-small-step.json\n@@ -1 +1 @@\n-{\"experiment\":\"harmonic-ground-state\",\"method\":\"split-step\",\"g\":1,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"harmonic\"}\n+{\"experiment\":\"harmonic-ground-state\",\"method\":\"split-step\",\"g\":1,\"dt\":0.005,\"nx\":256,\"xmax\":8,\"trap\":\"harmonic\"}\n",
+      "artifacts": [
+        {
+          "path": "results/harmonic-small-step/density.png",
+          "role": "figure",
+          "title": "Ground-state density"
+        },
+        {
+          "path": "results/harmonic-small-step/convergence.png",
+          "role": "figure",
+          "title": "Energy convergence"
+        },
+        {
+          "path": "results/harmonic-small-step/summary.json",
+          "role": "data",
+          "title": "Solver summary"
+        }
+      ]
+    },
+    {
+      "manifest": {
+        "schema": 1,
+        "id": "BEC-004",
+        "experiment": "harmonic-ground-state",
+        "title": "Gradient Flow",
+        "run_status": "success",
+        "scientific_status": "notable",
+        "summary": "Computed with the 1D Gross-Pitaevskii solver (gradient-flow, g=1, dt=0.01).",
+        "interpretation": "At the same harmonic potential, g, dt, and grid, gradient flow gives E=0.689404263 ℏω versus 0.689403720 ℏω for split-step, an absolute difference of 5.43e-07 ℏω. The energies agree within 1×10⁻⁵ ℏω; the finite-difference residual (0.00122) is higher than the split-step residual (0.000551), so residuals retain method-dependent discretization.",
+        "open_questions": [],
+        "execution": {
+          "command": [
+            "python3",
+            "run.py",
+            "--method",
+            "gradient-flow",
+            "--g",
+            "1",
+            "--dt",
+            "0.01",
+            "--nx",
+            "256",
+            "--xmax",
+            "8",
+            "--trap",
+            "harmonic"
+          ],
+          "started_at": "2026-09-27T14:39:59.752Z",
+          "finished_at": "2026-09-27T14:39:59.925Z",
+          "duration_ms": 173,
+          "exit_code": 0,
+          "capture": "post-hoc"
+        },
+        "git": {
+          "repository": "srs",
+          "branch": "main",
+          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
+          "dirty": true
+        },
+        "facts": [
+          {
+            "key": "solver.method",
+            "label": "Imaginary-time method",
+            "value": "gradient-flow",
+            "source": "command"
+          },
+          {
+            "key": "solver.interaction_strength",
+            "label": "Interaction strength g",
+            "value": 1,
+            "unit": "dimensionless",
+            "source": "command"
+          },
+          {
+            "key": "solver.imaginary_time_step",
+            "label": "Imaginary-time step",
+            "value": 0.01,
+            "unit": "ω⁻¹",
+            "source": "command"
+          },
+          {
+            "key": "grid.points",
+            "label": "Grid points",
+            "value": 256,
+            "source": "command"
+          },
+          {
+            "key": "grid.half_width",
+            "label": "Grid half-width",
+            "value": 8,
+            "unit": "aₕₒ",
+            "source": "command"
+          },
+          {
+            "key": "trap.type",
+            "label": "Trap potential",
+            "value": "harmonic",
+            "source": "command"
+          },
+          {
+            "key": "solver.energy",
+            "label": "Ground-state energy",
+            "value": 0.6894042632689806,
+            "unit": "ℏω",
+            "highlight": true,
+            "source": "results/gradient-flow/summary.json#/energy"
+          },
+          {
+            "key": "solver.chemical_potential",
+            "label": "Chemical potential",
+            "value": 0.8700337064200334,
+            "unit": "ℏω",
+            "source": "results/gradient-flow/summary.json#/chemical_potential"
+          },
+          {
+            "key": "solver.stationary_residual",
+            "label": "Stationary-equation residual",
+            "value": 0.001220579468551004,
+            "source": "results/gradient-flow/summary.json#/residual"
+          },
+          {
+            "key": "solver.normalization_error",
+            "label": "Normalization error",
+            "value": 2.220446049250313e-16,
+            "source": "results/gradient-flow/summary.json#/normalization_error"
+          },
+          {
+            "key": "solver.iterations",
+            "label": "Iterations",
+            "value": 187,
+            "source": "results/gradient-flow/summary.json#/iterations"
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "results/gradient-flow/density.png",
+            "role": "figure",
+            "title": "Ground-state density"
+          },
+          {
+            "path": "results/gradient-flow/convergence.png",
+            "role": "figure",
+            "title": "Energy convergence"
+          },
+          {
+            "path": "results/gradient-flow/summary.json",
+            "role": "data",
+            "title": "Solver summary"
+          }
+        ]
+      },
+      "codePatch": "--- a/experiments/harmonic-interacting.json\n+++ b/experiments/gradient-flow.json\n@@ -1 +1 @@\n-{\"experiment\":\"harmonic-ground-state\",\"method\":\"split-step\",\"g\":1,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"harmonic\"}\n+{\"experiment\":\"harmonic-ground-state\",\"method\":\"gradient-flow\",\"g\":1,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"harmonic\"}\n",
+      "artifacts": [
+        {
+          "path": "results/gradient-flow/density.png",
+          "role": "figure",
+          "title": "Ground-state density"
+        },
+        {
+          "path": "results/gradient-flow/convergence.png",
+          "role": "figure",
+          "title": "Energy convergence"
+        },
+        {
+          "path": "results/gradient-flow/summary.json",
+          "role": "data",
+          "title": "Solver summary"
+        }
+      ],
+      "comparisonRunId": "BEC-002"
+    },
+    {
+      "manifest": {
+        "schema": 1,
+        "id": "BEC-005",
+        "experiment": "quartic-ground-state",
+        "title": "Quartic Trap",
+        "run_status": "success",
+        "scientific_status": "scratch",
+        "summary": "Computed with the 1D Gross-Pitaevskii solver (split-step, g=1, dt=0.01).",
+        "interpretation": "This run changes the trap to quartic and computes E=0.699297564 ℏω. Because the potential differs from the harmonic cases, its energy is not a direct comparison of solver convergence or method agreement.",
+        "open_questions": [],
+        "execution": {
+          "command": [
+            "python3",
+            "run.py",
+            "--method",
+            "split-step",
+            "--g",
+            "1",
+            "--dt",
+            "0.01",
+            "--nx",
+            "256",
+            "--xmax",
+            "8",
+            "--trap",
+            "quartic",
+            "--quartic",
+            "0.01"
+          ],
+          "started_at": "2026-09-27T14:39:59.948Z",
+          "finished_at": "2026-09-27T14:40:00.124Z",
+          "duration_ms": 175,
+          "exit_code": 0,
+          "capture": "post-hoc"
+        },
+        "git": {
+          "repository": "srs",
+          "branch": "main",
+          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
+          "dirty": true
+        },
+        "facts": [
+          {
+            "key": "solver.method",
+            "label": "Imaginary-time method",
+            "value": "split-step",
+            "source": "command"
+          },
+          {
+            "key": "solver.interaction_strength",
+            "label": "Interaction strength g",
+            "value": 1,
+            "unit": "dimensionless",
+            "source": "command"
+          },
+          {
+            "key": "solver.imaginary_time_step",
+            "label": "Imaginary-time step",
+            "value": 0.01,
+            "unit": "ω⁻¹",
+            "source": "command"
+          },
+          {
+            "key": "grid.points",
+            "label": "Grid points",
+            "value": 256,
+            "source": "command"
+          },
+          {
+            "key": "grid.half_width",
+            "label": "Grid half-width",
+            "value": 8,
+            "unit": "aₕₒ",
+            "source": "command"
+          },
+          {
+            "key": "trap.type",
+            "label": "Trap potential",
+            "value": "quartic",
+            "source": "command"
+          },
+          {
+            "key": "solver.energy",
+            "label": "Ground-state energy",
+            "value": 0.6992975635223073,
+            "unit": "ℏω",
+            "highlight": true,
+            "source": "results/quartic-trap/summary.json#/energy"
+          },
+          {
+            "key": "solver.chemical_potential",
+            "label": "Chemical potential",
+            "value": 0.8826248088834643,
+            "unit": "ℏω",
+            "source": "results/quartic-trap/summary.json#/chemical_potential"
+          },
+          {
+            "key": "solver.stationary_residual",
+            "label": "Stationary-equation residual",
+            "value": 0.0005722920026637138,
+            "source": "results/quartic-trap/summary.json#/residual"
+          },
+          {
+            "key": "solver.normalization_error",
+            "label": "Normalization error",
+            "value": 2.220446049250313e-16,
+            "source": "results/quartic-trap/summary.json#/normalization_error"
+          },
+          {
+            "key": "solver.iterations",
+            "label": "Iterations",
+            "value": 418,
+            "source": "results/quartic-trap/summary.json#/iterations"
+          },
+          {
+            "key": "trap.quartic_strength",
+            "label": "Quartic strength",
+            "value": 0.01,
+            "source": "command"
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "results/quartic-trap/density.png",
+            "role": "figure",
+            "title": "Ground-state density"
+          },
+          {
+            "path": "results/quartic-trap/convergence.png",
+            "role": "figure",
+            "title": "Energy convergence"
+          },
+          {
+            "path": "results/quartic-trap/summary.json",
+            "role": "data",
+            "title": "Solver summary"
+          }
+        ]
+      },
+      "codePatch": "--- a/experiments/gradient-flow.json\n+++ b/experiments/quartic-trap.json\n@@ -1 +1 @@\n-{\"experiment\":\"harmonic-ground-state\",\"method\":\"gradient-flow\",\"g\":1,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"harmonic\"}\n+{\"experiment\":\"quartic-ground-state\",\"method\":\"split-step\",\"g\":1,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"quartic\",\"quartic\":0.01}\n",
+      "artifacts": [
+        {
+          "path": "results/quartic-trap/density.png",
+          "role": "figure",
+          "title": "Ground-state density"
+        },
+        {
+          "path": "results/quartic-trap/convergence.png",
+          "role": "figure",
+          "title": "Energy convergence"
+        },
+        {
+          "path": "results/quartic-trap/summary.json",
+          "role": "data",
+          "title": "Solver summary"
+        }
+      ]
+    },
+    {
+      "manifest": {
+        "schema": 1,
+        "id": "BEC-006",
+        "experiment": "double-well-ground-state",
+        "title": "Double Well",
+        "run_status": "success",
+        "scientific_status": "scratch",
+        "summary": "Computed with the 1D Gross-Pitaevskii solver (split-step, g=1, dt=0.01).",
+        "interpretation": "This run changes the trap to double-well and computes E=2.145993015 ℏω. Because the potential differs from the harmonic cases, its energy is not a direct comparison of solver convergence or method agreement.",
+        "open_questions": [],
+        "execution": {
+          "command": [
+            "python3",
+            "run.py",
+            "--method",
+            "split-step",
+            "--g",
+            "1",
+            "--dt",
+            "0.01",
+            "--nx",
+            "256",
+            "--xmax",
+            "8",
+            "--trap",
+            "double-well",
+            "--barrier",
+            "2"
+          ],
+          "started_at": "2026-09-27T14:40:00.149Z",
+          "finished_at": "2026-09-27T14:40:00.329Z",
+          "duration_ms": 180,
+          "exit_code": 0,
+          "capture": "post-hoc"
+        },
+        "git": {
+          "repository": "srs",
+          "branch": "main",
+          "commit": "94690b3b239a4ecf6a4b80bb62da53e3b835b620",
+          "dirty": true
+        },
+        "facts": [
+          {
+            "key": "solver.method",
+            "label": "Imaginary-time method",
+            "value": "split-step",
+            "source": "command"
+          },
+          {
+            "key": "solver.interaction_strength",
+            "label": "Interaction strength g",
+            "value": 1,
+            "unit": "dimensionless",
+            "source": "command"
+          },
+          {
+            "key": "solver.imaginary_time_step",
+            "label": "Imaginary-time step",
+            "value": 0.01,
+            "unit": "ω⁻¹",
+            "source": "command"
+          },
+          {
+            "key": "grid.points",
+            "label": "Grid points",
+            "value": 256,
+            "source": "command"
+          },
+          {
+            "key": "grid.half_width",
+            "label": "Grid half-width",
+            "value": 8,
+            "unit": "aₕₒ",
+            "source": "command"
+          },
+          {
+            "key": "trap.type",
+            "label": "Trap potential",
+            "value": "double-well",
+            "source": "command"
+          },
+          {
+            "key": "solver.energy",
+            "label": "Ground-state energy",
+            "value": 2.145993015214121,
+            "unit": "ℏω",
+            "highlight": true,
+            "source": "results/double-well/summary.json#/energy"
+          },
+          {
+            "key": "solver.chemical_potential",
+            "label": "Chemical potential",
+            "value": 2.2695808200492498,
+            "unit": "ℏω",
+            "source": "results/double-well/summary.json#/chemical_potential"
+          },
+          {
+            "key": "solver.stationary_residual",
+            "label": "Stationary-equation residual",
+            "value": 0.00021350427552192474,
+            "source": "results/double-well/summary.json#/residual"
+          },
+          {
+            "key": "solver.normalization_error",
+            "label": "Normalization error",
+            "value": 0.0,
+            "source": "results/double-well/summary.json#/normalization_error"
+          },
+          {
+            "key": "solver.iterations",
+            "label": "Iterations",
+            "value": 594,
+            "source": "results/double-well/summary.json#/iterations"
+          },
+          {
+            "key": "trap.central_barrier",
+            "label": "Double-well barrier",
+            "value": 2,
+            "source": "command"
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "results/double-well/density.png",
+            "role": "figure",
+            "title": "Ground-state density"
+          },
+          {
+            "path": "results/double-well/convergence.png",
+            "role": "figure",
+            "title": "Energy convergence"
+          },
+          {
+            "path": "results/double-well/summary.json",
+            "role": "data",
+            "title": "Solver summary"
+          }
+        ]
+      },
+      "codePatch": "--- a/experiments/quartic-trap.json\n+++ b/experiments/double-well.json\n@@ -1 +1 @@\n-{\"experiment\":\"quartic-ground-state\",\"method\":\"split-step\",\"g\":1,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"quartic\",\"quartic\":0.01}\n+{\"experiment\":\"double-well-ground-state\",\"method\":\"split-step\",\"g\":1,\"dt\":0.01,\"nx\":256,\"xmax\":8,\"trap\":\"double-well\",\"barrier\":2}\n",
+      "artifacts": [
+        {
+          "path": "results/double-well/density.png",
+          "role": "figure",
+          "title": "Ground-state density"
+        },
+        {
+          "path": "results/double-well/convergence.png",
+          "role": "figure",
+          "title": "Energy convergence"
+        },
+        {
+          "path": "results/double-well/summary.json",
+          "role": "data",
+          "title": "Solver summary"
+        }
+      ]
+    }
+  ],
+  "reports": []
+}

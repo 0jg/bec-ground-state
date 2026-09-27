@@ -1,0 +1,19 @@
+{
+  "method": "gradient-flow",
+  "trap": "harmonic",
+  "g": 1.0,
+  "dt": 0.01,
+  "nx": 256,
+  "xmax": 8.0,
+  "quartic": 0.01,
+  "barrier": 2.0,
+  "energy": 0.6894042632689806,
+  "chemical_potential": 0.8700337064200334,
+  "normalization": 1.0000000000000002,
+  "normalization_error": 2.220446049250313e-16,
+  "residual": 0.001220579468551004,
+  "iterations": 187,
+  "converged": true,
+  "energy_error": null,
+  "chemical_potential_error": null
+}

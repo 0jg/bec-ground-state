@@ -1,0 +1,1 @@
+{"experiment":"double-well-ground-state","method":"split-step","g":1,"dt":0.01,"nx":256,"xmax":8,"trap":"double-well","barrier":2}

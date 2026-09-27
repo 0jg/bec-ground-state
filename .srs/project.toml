@@ -1,0 +1,9 @@
+schema = 1
+
+[project]
+name = "bec-ground-state"
+remote = "https://sci.rs"
+repository_url = "https://github.com/0jg/bec-ground-state"
+
+[artifacts]
+include = ["results/**/*.png", "results/**/*.json"]
