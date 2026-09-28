@@ -34,7 +34,7 @@
           "finished_at": "2026-09-27T15:51:28.832Z",
           "duration_ms": 281,
           "exit_code": 0,
-          "capture": "post-hoc"
+          "capture": "tracked"
         },
         "git": {
           "repository": "bec-ground-state",
@@ -199,7 +199,7 @@
           "finished_at": "2026-09-27T15:51:29.038Z",
           "duration_ms": 183,
           "exit_code": 0,
-          "capture": "post-hoc"
+          "capture": "tracked"
         },
         "git": {
           "repository": "bec-ground-state",
@@ -350,7 +350,7 @@
           "finished_at": "2026-09-27T15:51:29.254Z",
           "duration_ms": 193,
           "exit_code": 0,
-          "capture": "post-hoc"
+          "capture": "tracked"
         },
         "git": {
           "repository": "bec-ground-state",
@@ -501,7 +501,7 @@
           "finished_at": "2026-09-27T15:51:29.455Z",
           "duration_ms": 178,
           "exit_code": 0,
-          "capture": "post-hoc"
+          "capture": "tracked"
         },
         "git": {
           "repository": "bec-ground-state",
@@ -655,7 +655,7 @@
           "finished_at": "2026-09-27T15:51:29.657Z",
           "duration_ms": 178,
           "exit_code": 0,
-          "capture": "post-hoc"
+          "capture": "tracked"
         },
         "git": {
           "repository": "bec-ground-state",
@@ -814,7 +814,7 @@
           "finished_at": "2026-09-27T15:51:29.862Z",
           "duration_ms": 183,
           "exit_code": 0,
-          "capture": "post-hoc"
+          "capture": "tracked"
         },
         "git": {
           "repository": "bec-ground-state",

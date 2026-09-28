@@ -165,7 +165,7 @@ def main() -> None:
             "summary": f"Computed with the 1D Gross-Pitaevskii solver ({config['method']}, g={config['g']}, dt={config['dt']}).",
             "interpretation": interpretation, "open_questions": [],
             "execution": {"command": command, "started_at": started, "finished_at": ended,
-                          "duration_ms": round(duration * 1000), "exit_code": result.returncode, "capture": "post-hoc"},
+                          "duration_ms": round(duration * 1000), "exit_code": result.returncode, "capture": "tracked"},
             "git": source_state,
             "facts": facts,
             "artifacts": [{"path": f"results/{slug}/density.png", "role": "figure", "title": "Ground-state density"},
